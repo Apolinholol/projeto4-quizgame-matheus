@@ -1,18 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    
+  </div>
 </template>
 
 <script lang="ts">
+
+import axios from 'axios';
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+
 
 export default defineComponent({
   name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+  created() {
+    axios
+      .get('https://opentdb.com/api.php?amount=10')
+      .then(response => console.log(response.data))
+  },
+
+  });
 </script>
 
 <style lang="scss">
